@@ -1,0 +1,10 @@
+http://blog.pascal-martin.fr/post/php-5.3-intl-2-internationalisation-localisation
+
+http://php.net/manual/fr/intl.installation.php
+
+http://th.php.net/manual/fr/intro.intl.php
+
+http://www.display-inline.fr/2009/09/php-5-3-generer-une-liste-de-pays-localisee/
+
+
+http://localhost/laravel/drag/public/

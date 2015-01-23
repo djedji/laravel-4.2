@@ -1,0 +1,195 @@
+ctrl+l : clean ecran = cls sur cmd
+
+---------------------------------------------
+
+init :
+
+git init
+
+---------------------------------------------
+
+config :
+
+git config --list
+
+---------------------------------------------
+
+add :
+
+git add .
+git add toto.txt
+
+---------------------------------------------
+
+commit :
+
+git commit -a
+git commit -am "message commit"
+git commit
+
+---------------------------------------------
+
+copy file between branch :
+
+    git checkout nom-branch path/file -> (particularité: recherche dans path/file et
+                                        copy dans la nouvelle branch avec le même chemin)
+
+---------------------------------------------
+
+checkout :
+
+git checkout -b nom-de-la-branch-qui-sera-creer
+
+checkout : (remove file name into the working directory)
+git checkout -- file-name
+
+checkout : ** (remove old commit by commit number and move the content into the stagging index)
+git checkout commit-number -- file-name
+
+** equivaut à git reset --soft avec-ou-sans-commit-id
+
+---------------------------------------------
+
+branch :
+
+git branch
+git branch nom-de-la-branch-qui-sera-creer
+
+delete branch :
+        git branch -d [name_of_your_new_branch]
+        git branch -D [name_of_your_new_branch][force_deleting]
+
+rename branch and of course move files
+        git branch -m [name-old-branch, name-new-branch]
+
+---------------------------------------------
+
+[alias]
+    log :
+        logfirst = log --abbrev-commit --decorate -1
+        logshort = log --graph --decorate --oneline --abbrev-commit
+        logs = log --graph --decorate --oneline --abbrev-commit --all
+        prettylog = log --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph --abbrev-commit --date=relative
+
+	status :
+	    st = status
+
+	tree :
+        lstree = ls-tree --abbrev=8
+        lstreer = ls-tree -r --abbrev=8
+
+    checkout :
+        scb = checkout
+        scbac = checkout -b
+
+    modified : [ exemple : difflog = diff --name-status h5y78ssde..4854dpor8 ]
+	    modified = diff --name-status
+
+
+
+---------------------------------------------
+
+merge : (code en se plaçant sur la branch qui reçoit l'autre branch)
+
+git merge --no-ff nom-de-la-branch
+git merge nom-de-la-branch
+
+---------------------------------------------
+
+update :
+
+    git fetch [name_of_your_remote]
+
+ ---------------------------------------------
+
+rebase : (pour supprimer et fusionner la branch)
+
+git rebase nom-de-la-branch
+
+---------------------------------------------
+rm, mv, status
+
+    git rm -r .
+    git mv nom-de-la-source nom-de-la-destination
+    git status
+
+---------------------------------------------
+
+delete :
+
+   delete branch :
+        git branch -d [name_of_your_new_branch]
+        git branch -D [name_of_your_new_branch][force_deleting]
+
+---------------------------------------------
+
+clean : (clean only working directory not staging or repository)
+
+    git clean -n or -f : just show or action definitively delete
+
+
+---------------------------------------------
+reset :
+
+    --soft
+        git reset --soft (reset repository commit [by id or no=last-id] and place content in staging index)
+
+    --mixed
+        git reset --mixed (reset repository commit [by id or no=last-id] and place content in working directory)
+
+    --hard
+        git reset --hard (reset repositiory commit [by id or no=last-id] definitively)
+
+---------------------------------------------
+
+.gitignore :
+
+    fichier a mettre sur git repository afin d'ignorer certaine portion peut contenir des Regex
+
+ ignorer un fichier manuellement : suivre la procédure ci-dessous v
+        1 -> git add, git commit, pour le placer sur le repository
+        2 -> git rm --cached non-du-fichier-ci-dessus-a-ignorer
+        3 -> le fichier fichier apparait alors comme deleted : dans le staging index
+        4 -> commit -m pour commiter à nouveau le fichier sur le repository
+        5 -> fin de la procédure, désormais le fichier sera tout bonnement ignoré a tous les prochains commit
+
+---------------------------------------------
+
+    diff :
+
+        git diff
+            (comparaisont entre le fichier enregistrer dans le repository
+                    avec le fichier en cours dans le working directory)
+
+        git diff --staged
+            (comparaisont entre le fichier enregistrer dans le repository
+                            avec le fichier en cours dans le working directory)
+
+---------------------------------------------
+
+	serveur : remote
+
+	clone :
+		git clone git@github.com:djedji/dossier.git
+		
+	push : 
+		git push origin master
+		
+	fetch : (doit etre suivie d'un merge manuellement pour merger la branch origin/master du serveur avec la branche local master)
+		git fetch origin master 
+		git merge origin/master master
+		
+	pull : (group fetch et merge : donc évite le fetch et le merge manuel ci-dessus)
+		git pull origin master
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

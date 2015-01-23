@@ -1,0 +1,41 @@
+[user]
+	name = djedji
+	email = ctelyon@orange.fr
+	
+[core]
+	editor = "notepad"
+	autocrlf = false
+[alias]
+	st = status
+	logs = log --graph --decorate --oneline --abbrev-commit --all
+	log-first = log --abbrev-commit --decorate -1
+	content-branch = ls-tree --abbrev=8
+	get-content-branch = ls-tree -r --abbrev=8
+	switch-branch = checkout
+	create-branch = checkout -b
+	compare-branch = diff --name-status
+	list-branch = branch
+	list-config = config --list
+	delete-branch = branch -D
+	remove-branch = branch -D
+	copy-on-branch = checkout
+	list-server = remote -v
+	list-remote = remote -v
+	list-github = remote -v
+	init-github = remote add
+	list-content-branch = ls-tree --abbrev=8
+	clone-laravel-4-2 = clone git@github.com:djedji/laravel-4.2.git
+	reset-head = reset HEAD
+	reset-last-commit = reset --mixed
+	clone-themes = clone git@github.com:djedji/themes.git
+	add-remote = remote add origin
+#remove-remote = exemple : git remove-remote origin
+	remove-remote = remote remove
+	fetch-github = fetch
+	push-github = push -u
+	list-alias = config --get-regexp alias
+#rename-branch = exemple : git branch -m [name-old-branch, name-new-branch]
+	rename-branch = branch -m
+	pretty-log = log --pretty=format:'%Cred%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph --abbrev-commit --date=relative
+[commit]
+	template = .git/template
